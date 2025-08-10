@@ -11,7 +11,7 @@ export default async function handler(req, res) {
         return;
     }
     
-    const N8N_WEBHOOK_URL = 'https://n8n-three.southafricanorth.azurecontainer.io/webhook/50deb633-8243-406a-8d0a-d022c8e7ff9a';
+    const N8N_WEBHOOK_URL = 'https://n8n-three.southafricanorth.azurecontainer.io/webhook/451f53ab-faa0-4e23-be71-4c937f1bfffa';
     
     try {
         const response = await fetch(N8N_WEBHOOK_URL, {
