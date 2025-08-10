@@ -1,7 +1,7 @@
 // dashboard.js - Updated for multi-step form with enhanced functionality
 
 // Configuration
-const N8N_WEBHOOK_URL = 'https://n8n-three.southafricanorth.azurecontainer.io/webhook/50deb633-8243-406a-8d0a-d022c8e7ff9a'; // Replace with your n8n webhook URL
+const N8N_WEBHOOK_URL = '/api/webhook.js'
 const CLOUDINARY_UPLOAD_PRESET = 'n8n-ai-preset'; // Replace with your Cloudinary upload preset
 const CLOUDINARY_CLOUD_NAME = 'vic-3e'; // Replace with your Cloudinary cloud name
 
