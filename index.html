@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Store Onboarding</title>
+    <link rel="stylesheet" href="dashboard.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar Navigation -->
+        <nav class="sidebar">
+            <div class="sidebar-header">
+                <h2><i class="fas fa-store"></i> Clasima Admin</h2>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#" class="nav-link active" data-tab="add-store">
+                    <i class="fas fa-plus-circle"></i> Add Store
+                </a></li>
+                <li><a href="#" class="nav-link" data-tab="add-products">
+                    <i class="fas fa-box"></i> Add Products
+                </a></li>
+            </ul>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Add Store Tab -->
+            <div id="add-store-tab" class="tab-content active">
+                <div class="page-header">
+                    <h1><i class="fas fa-store"></i> Create New Store</h1>
+                    <p>Fill out all the details to create a new store in your marketplace</p>
+                </div>
+
+                <!-- Form Steps Navigation -->
+                <div class="form-steps">
+                    <div class="step active" data-step="1">
+                        <div class="step-number">1</div>
+                        <span>Basic Info</span>
+                    </div>
+                    <div class="step" data-step="2">
+                        <div class="step-number">2</div>
+                        <span>Images</span>
+                    </div>
+                    <div class="step" data-step="3">
+                        <div class="step-number">3</div>
+                        <span>Contact</span>
+                    </div>
+                    <div class="step" data-step="4">
+                        <div class="step-number">4</div>
+                        <span>Social Media</span>
+                    </div>
+                </div>
+
+                <form id="store-form" class="store-form">
+                    <!-- Step 1: Basic Information -->
+                    <div class="form-step active" id="step-1">
+                        <div class="step-header">
+                            <h2><i class="fas fa-info-circle"></i> Basic Information</h2>
+                            <p>Tell us about your store and what makes it special</p>
+                        </div>
+
+                        <div class="form-section">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="store_name" class="form-label">
+                                        Store Name <span class="required">*</span>
+                                    </label>
+                                    <input type="text" id="store_name" name="store_name" 
+                                           class="form-input" placeholder="Enter your store name" required>
+                                    <div class="field-error" id="store_name_error"></div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="store_slug" class="form-label">
+                                        Store URL Slug <span class="required">*</span>
+                                        <span class="field-hint">This will be your store's web address</span>
+                                    </label>
+                                    <input type="text" id="store_slug" name="store_slug" 
+                                           class="form-input" placeholder="store-name" required>
+                                    <div class="field-error" id="store_slug_error"></div>
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="slogan" class="form-label">Store Slogan</label>
+                                    <input type="text" id="slogan" name="slogan" 
+                                           class="form-input" placeholder="Your store's catchy tagline">
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="store_category" class="form-label">
+                                        Store Category <span class="required">*</span>
+                                    </label>
+                                    <select id="store_category" name="store_category" class="form-select" required>
+                                        <option value="">Select Category</option>
+                                        
+                                        <optgroup label="Creative">
+                                            <option value="creative-agency">Creative Agency</option>
+                                            <option value="photo-video-studio">Photo/Video Studio</option>
+                                            <option value="photography">Photography</option>
+                                            <option value="videography">Videography</option>
+                                        </optgroup>
+                                        
+                                        <optgroup label="Home & Living Spaces">
+                                            <option value="event-spaces-planning">Event Spaces & Planning</option>
+                                            <option value="home-goods-decor">Home Goods & Decor</option>
+                                            <option value="home-services-maintenance">Home Services & Maintenance</option>
+                                            <option value="logistics-moving">Logistics & Moving</option>
+                                            <option value="real-estate-rentals">Real Estate & Rentals</option>
+                                        </optgroup>
+                                        
+                                        <optgroup label="Personal Well-being & Style">
+                                            <option value="beauty-grooming">Beauty & Grooming</option>
+                                            <option value="fashion-apparel">Fashion & Apparel</option>
+                                        </optgroup>
+                                        
+                                        <optgroup label="Professional Services">
+                                            <option value="business-consulting">Business & Consulting</option>
+                                            <option value="general-professional">General Professional Services</option>
+                                        </optgroup>
+                                    </select>
+                                    <div class="field-error" id="store_category_error"></div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="opening_hours" class="form-label">Opening Hours Status</label>
+                                <select id="opening_hours" name="opening_hours" class="form-select">
+                                    <option value="">Select Status</option>
+                                    <option value="24/7">Open 24/7</option>
+                                    <option value="business-hours">Business Hours Only</option>
+                                    <option value="custom">Custom Hours</option>
+                                    <option value="closed">Temporarily Closed</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="details" class="form-label">Store Description</label>
+                                <textarea id="details" name="details" class="form-textarea" rows="4" 
+                                          placeholder="Describe your store, products, and what makes you unique..."></textarea>
+                            </div>
+                        </div>
+
+                        <div class="step-actions">
+                            <button type="button" class="btn btn-primary" onclick="nextStep()">
+                                Next: Upload Images <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Step 2: Store Images -->
+                    <div class="form-step" id="step-2">
+                        <div class="step-header">
+                            <h2><i class="fas fa-images"></i> Store Images</h2>
+                            <p>Upload your store banner and logo to make a great first impression</p>
+                        </div>
+
+                        <div class="form-section">
+                            <!-- Store Banner -->
+                            <div class="image-upload-container">
+                                <h3 class="upload-title">
+                                    <i class="fas fa-panoramic"></i> Store Banner <span class="required">*</span>
+                                </h3>
+                                <p class="upload-description">This will be displayed at the top of your store page</p>
+                                
+                                <div class="upload-specs">
+                                    <span><i class="fas fa-ruler-combined"></i> Recommended: 1230×350px</span>
+                                    <span><i class="fas fa-weight-hanging"></i> Max: 8MB</span>
+                                    <span><i class="fas fa-file-image"></i> PNG, JPG, JPEG, WEBP</span>
+                                </div>
+                                
+                                <div class="file-upload-area banner-upload" id="banner-upload">
+                                    <div class="upload-placeholder">
+                                        <i class="fas fa-cloud-upload-alt"></i>
+                                        <h4>Upload Store Banner</h4>
+                                        <p>Drag and drop your banner here, or click to browse</p>
+                                    </div>
+                                    <input type="file" id="store_banner" name="store_banner" 
+                                           accept=".png,.jpg,.jpeg,.webp" hidden>
+                                    <div class="file-preview" id="banner-preview"></div>
+                                </div>
+                            </div>
+
+                            <!-- Store Logo -->
+                            <div class="image-upload-container">
+                                <h3 class="upload-title">
+                                    <i class="fas fa-circle-user"></i> Store Logo <span class="required">*</span>
+                                </h3>
+                                <p class="upload-description">Your logo will appear throughout the marketplace</p>
+                                
+                                <div class="upload-specs">
+                                    <span><i class="fas fa-ruler-combined"></i> Recommended: 140×140px</span>
+                                    <span><i class="fas fa-weight-hanging"></i> Max: 8MB</span>
+                                    <span><i class="fas fa-file-image"></i> PNG, JPG, JPEG, WEBP</span>
+                                </div>
+                                
+                                <div class="file-upload-area logo-upload" id="logo-upload">
+                                    <div class="upload-placeholder">
+                                        <i class="fas fa-user-circle"></i>
+                                        <h4>Upload Store Logo</h4>
+                                        <p>Drag and drop your logo here, or click to browse</p>
+                                    </div>
+                                    <input type="file" id="store_logo" name="store_logo" 
+                                           accept=".png,.jpg,.jpeg,.webp" hidden>
+                                    <div class="file-preview" id="logo-preview"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="step-actions">
+                            <button type="button" class="btn btn-secondary" onclick="prevStep()">
+                                <i class="fas fa-arrow-left"></i> Back
+                            </button>
+                            <button type="button" class="btn btn-primary" onclick="nextStep()">
+                                Next: Contact Info <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Step 3: Contact Information -->
+                    <div class="form-step" id="step-3">
+                        <div class="step-header">
+                            <h2><i class="fas fa-phone"></i> Contact Information</h2>
+                            <p>Help customers get in touch with you easily</p>
+                        </div>
+
+                        <div class="form-section">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="contact_email" class="form-label">
+                                        Email Address <span class="required">*</span>
+                                    </label>
+                                    <div class="input-with-icon">
+                                        <i class="fas fa-envelope"></i>
+                                        <input type="email" id="contact_email" name="contact_email" 
+                                               class="form-input" placeholder="store@example.com" required>
+                                    </div>
+                                    <div class="field-error" id="contact_email_error"></div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="contact_phone" class="form-label">Phone Number</label>
+                                    <div class="input-with-icon">
+                                        <i class="fas fa-phone"></i>
+                                        <input type="tel" id="contact_phone" name="contact_phone" 
+                                               class="form-input" placeholder="+1 (555) 123-4567">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="contact_whatsapp" class="form-label">WhatsApp Number</label>
+                                    <div class="input-with-icon">
+                                        <i class="fab fa-whatsapp"></i>
+                                        <input type="tel" id="contact_whatsapp" name="contact_whatsapp" 
+                                               class="form-input" placeholder="+1 (555) 123-4567">
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="contact_website" class="form-label">Website URL</label>
+                                    <div class="input-with-icon">
+                                        <i class="fas fa-globe"></i>
+                                        <input type="url" id="contact_website" name="contact_website" 
+                                               class="form-input" placeholder="https://yourstore.com">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="address" class="form-label">
+                                    Store Address <span class="required">*</span>
+                                </label>
+                                <div class="input-with-icon textarea-with-icon">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <textarea id="address" name="address" class="form-textarea" rows="3" 
+                                              placeholder="Enter complete store address including city, state, and postal code" required></textarea>
+                                </div>
+                                <div class="field-error" id="address_error"></div>
+                            </div>
+                        </div>
+
+                        <div class="step-actions">
+                            <button type="button" class="btn btn-secondary" onclick="prevStep()">
+                                <i class="fas fa-arrow-left"></i> Back
+                            </button>
+                            <button type="button" class="btn btn-primary" onclick="nextStep()">
+                                Next: Social Media <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Step 4: Social Media -->
+                    <div class="form-step" id="step-4">
+                        <div class="step-header">
+                            <h2><i class="fas fa-share-alt"></i> Social Media Links</h2>
+                            <p>Connect your social media profiles to build trust and engagement</p>
+                        </div>
+
+                        <div class="form-section">
+                            <div class="social-media-grid">
+                                <div class="social-input-group">
+                                    <label for="media_facebook" class="social-label">
+                                        <i class="fab fa-facebook facebook-color"></i> Facebook
+                                    </label>
+                                    <input type="url" id="media_facebook" name="media_facebook" 
+                                           class="form-input" placeholder="https://facebook.com/yourstore">
+                                </div>
+                                
+                                <div class="social-input-group">
+                                    <label for="media_instagram" class="social-label">
+                                        <i class="fab fa-instagram instagram-color"></i> Instagram
+                                    </label>
+                                    <input type="url" id="media_instagram" name="media_instagram" 
+                                           class="form-input" placeholder="https://instagram.com/yourstore">
+                                </div>
+
+                                <div class="social-input-group">
+                                    <label for="media_twitter" class="social-label">
+                                        <i class="fab fa-twitter twitter-color"></i> Twitter
+                                    </label>
+                                    <input type="url" id="media_twitter" name="media_twitter" 
+                                           class="form-input" placeholder="https://twitter.com/yourstore">
+                                </div>
+                                
+                                <div class="social-input-group">
+                                    <label for="media_youtube" class="social-label">
+                                        <i class="fab fa-youtube youtube-color"></i> YouTube
+                                    </label>
+                                    <input type="url" id="media_youtube" name="media_youtube" 
+                                           class="form-input" placeholder="https://youtube.com/yourstore">
+                                </div>
+
+                                <div class="social-input-group">
+                                    <label for="media_linkedin" class="social-label">
+                                        <i class="fab fa-linkedin linkedin-color"></i> LinkedIn
+                                    </label>
+                                    <input type="url" id="media_linkedin" name="media_linkedin" 
+                                           class="form-input" placeholder="https://linkedin.com/company/yourstore">
+                                </div>
+                                
+                                <div class="social-input-group">
+                                    <label for="media_tiktok" class="social-label">
+                                        <i class="fab fa-tiktok tiktok-color"></i> TikTok
+                                    </label>
+                                    <input type="url" id="media_tiktok" name="media_tiktok" 
+                                           class="form-input" placeholder="https://tiktok.com/@yourstore">
+                                </div>
+
+                                <div class="social-input-group">
+                                    <label for="media_pinterest" class="social-label">
+                                        <i class="fab fa-pinterest pinterest-color"></i> Pinterest
+                                    </label>
+                                    <input type="url" id="media_pinterest" name="media_pinterest" 
+                                           class="form-input" placeholder="https://pinterest.com/yourstore">
+                                </div>
+                                
+                                <div class="social-input-group">
+                                    <label for="media_reddit" class="social-label">
+                                        <i class="fab fa-reddit reddit-color"></i> Reddit
+                                    </label>
+                                    <input type="url" id="media_reddit" name="media_reddit" 
+                                           class="form-input" placeholder="https://reddit.com/r/yourstore">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="step-actions">
+                            <button type="button" class="btn btn-secondary" onclick="prevStep()">
+                                <i class="fas fa-arrow-left"></i> Back
+                            </button>
+                            <button type="submit" class="btn btn-primary btn-lg">
+                                <i class="fas fa-rocket"></i> Create Store
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Form Summary (Hidden, for data collection) -->
+                    <div class="form-summary" style="display: none;">
+                        <button type="button" class="btn btn-secondary" onclick="resetForm()">
+                            <i class="fas fa-undo"></i> Reset Form
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Add Products Tab (Placeholder) -->
+            <div id="add-products-tab" class="tab-content">
+                <div class="placeholder-content">
+                    <i class="fas fa-box-open placeholder-icon"></i>
+                    <h2>Product Management</h2>
+                    <p>This section will be implemented in a future update.</p>
+                    <p>Here you'll be able to add and manage product listings for your stores.</p>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Success Modal -->
+    <div id="success-modal" class="modal">
+        <div class="modal-content success-modal-content">
+            <div class="success-icon">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <h3>Store Created Successfully!</h3>
+            <p>Your store has been submitted and will be reviewed shortly.</p>
+            <div class="success-actions">
+                <button class="btn btn-primary" onclick="closeSuccessModal()">Continue</button>
+                <button class="btn btn-secondary" onclick="createAnotherStore()">Create Another Store</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div id="loading-overlay" class="loading-overlay">
+        <div class="loading-content">
+            <div class="spinner"></div>
+            <h3>Creating Your Store...</h3>
+            <p id="loading-message">Please wait while we process your information</p>
+            <div class="loading-progress">
+                <div class="progress-bar" id="progress-bar"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="dashboard.js"></script>
+</body>
+</html>
